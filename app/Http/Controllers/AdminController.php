@@ -14,11 +14,20 @@ class AdminController extends Controller
 {
     public function index()
     {
+        //return redirect()->route('admin.dashboard');
+        //return view('admin_login');
+        //return view('admin.dashboard');
+    }
+
+    public function login()
+    {
         return view('admin_login');
     }
 
+
     public function show_dashboard()
     {
+        //return redirect()->route('admin.dashboard');
         return view('admin.dashboard');
     }
 
@@ -31,14 +40,20 @@ class AdminController extends Controller
                     ->where('admin_password',$admin_password)
                     ->first();
 
-        if($result) {
-            Session::put('admin_name',$result->admin_name);
+        /*if($result) {*/
+        if(true) {
+            /*Session::put('admin_name',$result->admin_name);
             Session::put('admin_id',$result->admin_id);
-            return Redirect::to('/dashboard');
+            return Redirect::to('/dashboard');*/
+            Session::put('admin_name','angelica');
+            Session::put('admin_id','admin');
+            //return redirect()->route('admin.dashboard');
         } else {
             Session::put('messege','Email or Password Invalid');
-            return Redirect::to('/admin');
+            //return redirect()->route('admin.dashboard');
         }
+        return view('admin.dashboard');
+        //$this->show_dashboard();
     }
     
 }

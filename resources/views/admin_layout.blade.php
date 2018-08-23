@@ -1,3 +1,8 @@
+<?php 
+
+	//use App\Http\Controllers\AdminController;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -333,7 +338,7 @@
 	<!-- start: Main Menu -->
 	<div id="sidebar-left" class="span2">
 		<div class="nav-collapse sidebar-nav">
-			<ul class="nav nav-tabs nav-stacked main-menu">
+			<!-- <ul class="nav nav-tabs nav-stacked main-menu">
 				<li><a href="{{URL::to('/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
 				<li><a href="{{URL::to('/all-category')}}"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li>
 				<li><a href="{{URL::to('/add-category')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>
@@ -350,6 +355,24 @@
 				<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
 				<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
 				<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
+			</ul> -->
+			<ul class="nav nav-tabs nav-stacked main-menu">
+				<li><a href="/dashboard"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
+				<li ><a href="/all-category"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li>
+				<li ><a href="/add-category"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>
+				<li ><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">All Brands</span></a></li>
+				<li ><a href="#"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Brand</span></a></li>
+				<li >
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Products</span><span class="label label-important"></span></a>
+					<ul>
+						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Product</span></a></li>
+						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
+					</ul>	
+				</li>
+				<li ><a href="#"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
+				<li ><a href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
+				<li ><a href="#"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
+				<li ><a href="#"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -363,8 +386,7 @@
 			</noscript>
 			
 			<!-- start: Content -->
-			<div id="content" class="span10">
-			
+			<div id="content" class="span10">			
                 @yield('admin_content');
 			</div><!-- end: Content -->	
 			

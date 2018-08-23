@@ -13,11 +13,13 @@ class CreateTblProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_products', function (Blueprint $table) {
+        Schema::create('tbl_product', function (Blueprint $table) {
             $table->increments('product_id');
             $table->integer('category_id');
-            $table->string('product_name');
-            $table->longText('product_description');
+            $table->integer('manufacture_id');
+            $table->string('product_name',30);
+            $table->longText('product_short_description');
+            $table->longText('product_long_description');
             $table->float('product_price');
             $table->string('product_image');
             $table->string('product_size');
@@ -34,6 +36,6 @@ class CreateTblProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_products');
+        Schema::dropIfExists('tbl_product');
     }
 }
