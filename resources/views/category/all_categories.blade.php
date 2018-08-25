@@ -67,7 +67,7 @@
                 @endforeach
             </table>            
         </div>
-    </div><!--/span-->
-</div><!--/row-->
+    </div>
+</div>
 
 @endsection

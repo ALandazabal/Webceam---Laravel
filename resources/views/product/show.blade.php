@@ -44,7 +44,7 @@
 				</p>
 				<p class="card-text">Categoría: <?php $category = DB::table('categories')
             ->where('category_id',$product->category_id)->first(); echo $category->category_name;?></p>
-				<p class="card-text">Sector Industrial: <?php $manufacture = DB::table('tbl_manufacture')
+				<p class="card-text">Sector Industrial: <?php $manufacture = DB::table('manufactures')
             ->where('manufacture_id',$product->manufacture_id)->first(); echo $manufacture->manufacture_name;?></p>
 				<div class="form-actions">
 					{!! Form::open(['route'=>['producto.destroy', $product->product_id],'method'=>'DELETE']) !!}			  
@@ -57,7 +57,7 @@
 			</div>			
 
 		</div>
-	</div><!--/span-->
+	</div>
 
-</div><!--/row-->
+</div>
 @endsection

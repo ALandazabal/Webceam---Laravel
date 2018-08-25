@@ -28,7 +28,6 @@
            ?>
 		</p>
 		<div class="box-content">
-			<!-- <form class="form-horizontal" action="/producto/" method="PUT" enctype="multipart/form-data"> -->
 			{!! Form::model($category, ['route'=> ['categoria.update', $category], 'method'=>'PUT', 'files' =>true, 'class' => 'form-horizontal']) !!}
 				
 			  <fieldset>
@@ -36,16 +35,14 @@
 				@include('category.form_category')
 
 				<div class="form-actions">
-				  <!-- <button type="submit" class="btn btn-primary">update category </button> -->
 				  {!! Form::submit('Actualizar categoría',['class' => 'btn btn-primary']) !!}
 				  <a href="/categoria" class="btn btn-danger">Cancelar</a>
 				</div>
 			  </fieldset>
-			<!-- </form>  -->  
 			{!! Form::close() !!}
 
 		</div>
-	</div><!--/span-->
+	</div>
 
-</div><!--/row-->
+</div>
 @endsection

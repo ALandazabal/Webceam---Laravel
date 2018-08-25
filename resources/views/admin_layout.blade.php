@@ -1,6 +1,5 @@
 <?php 
 
-	//use App\Http\Controllers\AdminController;
 	use App\Category;
 
 ?>
@@ -339,24 +338,6 @@
 	<!-- start: Main Menu -->
 	<div id="sidebar-left" class="span2">
 		<div class="nav-collapse sidebar-nav">
-			<!-- <ul class="nav nav-tabs nav-stacked main-menu">
-				<li><a href="{{URL::to('/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
-				<li><a href="{{URL::to('/all-category')}}"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li>
-				<li><a href="{{URL::to('/add-category')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>
-				<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">All Brands</span></a></li>
-				<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Brand</span></a></li>
-				<li>
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Products</span><span class="label label-important"></span></a>
-					<ul>
-						<li><a class="submenu" href="{{URL::to('/add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Product</span></a></li>
-						<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
-					</ul>	
-				</li>
-				<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
-				<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
-				<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
-				<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
-			</ul> -->
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<li><a href="/admin"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
 				<li >
@@ -366,8 +347,6 @@
 						<li><a class="submenu" href="/categoria"><i class="icon-file-alt"></i><span class="hidden-tablet">Todas las categorías</span></a></li>
 					</ul>	
 				</li>
-				<!-- <li ><a href="/all-category"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li> 
-				<li ><a href="/add-category"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>-->
 				<li >
 					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Usuarios</span><span class="label label-important"></span></a>
 					<ul>
@@ -382,8 +361,6 @@
 						<li><a class="submenu" href="/industria"><i class="icon-file-alt"></i><span class="hidden-tablet">Todas las industias</span></a></li>
 					</ul>	
 				</li>
-				<!-- <li ><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">All Brands</span></a></li>
-				<li ><a href="#"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Brand</span></a></li> -->
 				<li >
 					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Productos</span><span class="label label-important"></span></a>
 					<ul>
@@ -391,10 +368,6 @@
 						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>
 					</ul>	
 				</li>
-				<!-- <li ><a href="#"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
-				<li ><a href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
-				<li ><a href="#"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
-				<li ><a href="#"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li> -->
 			</ul>
 		</div>
 	</div>
@@ -486,6 +459,4 @@
 		});
 	</script> -->
 </body>
-
-<!-- Mirrored from bootstrapmaster.com/live/metro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2018 16:56:47 GMT -->
 </html>

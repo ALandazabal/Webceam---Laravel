@@ -28,24 +28,20 @@
            ?>
 		</p>
 		<div class="box-content">
-			<!-- <form class="form-horizontal" action="/producto" method="POST" 
-			enctype="multipart/form-data"> -->
 			{!! Form::open(['route'=>'producto.store','method'=>'POST', 'files' =>true, 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
 			  <fieldset>
 				
 				@include('product.form_product')
 
 				<div class="form-actions">
-				  <!-- <button type="submit" class="btn btn-primary">Añadir producto</button> -->
 				  {!! Form::submit('Añadir producto',['class' => 'btn btn-primary']) !!}
 				  <a href="/producto" class="btn btn-danger">Cancelar</a>
 				</div>
 			  </fieldset>
-			<!-- </form>   --> 
 			{!! Form::close() !!}
 
 		</div>
-	</div><!--/span-->
+	</div>
 
-</div><!--/row-->
+</div>
 @endsection
