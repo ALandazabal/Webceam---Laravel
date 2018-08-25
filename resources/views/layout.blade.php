@@ -217,7 +217,7 @@
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">						
 								<?php
-									$all_published_category=DB::table('tbl_category')
+									$all_published_category=DB::table('categories')
 										->where('publication_status',1)
 										->get();
 									foreach( $all_published_category as $v_category){?>

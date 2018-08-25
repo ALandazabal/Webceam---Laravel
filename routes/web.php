@@ -48,6 +48,14 @@ Route::get('/active_product/{product_id}','ProductController@active_product');*/
 /*Route::Resource('/admin','AdminController');*/
 Route::Resource('categoria','CategoriaController');
 Route::Resource('producto','ProductoController');
+Route::Resource('usuario','UserController');
+Route::Resource('industria','ManufactureController');
 Auth::routes();/**/
 Route::get('/login','AdminController@login');
 Route::get('/admin','AdminController@dashboard');
+Route::get('/unactive_product/{product_id}','ProductoController@unactive_product');
+Route::get('/active_product/{product_id}','ProductoController@active_product');
+Route::get('/unactive_category/{category_id}','CategoriaController@unactive_category');
+Route::get('/active_category/{category_id}','CategoriaController@active_category');
+Route::get('/unactive_manufacture/{manufacture_id}','ManufactureController@unactive_manufacture');
+Route::get('/active_manufacture/{manufacture_id}','ManufactureController@active_manufacture');

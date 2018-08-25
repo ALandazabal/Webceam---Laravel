@@ -1,6 +1,7 @@
 <?php 
 
 	//use App\Http\Controllers\AdminController;
+	use App\Category;
 
 ?>
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Metro Admin Template - Metro UI Style Bootstrap Admin Template</title>
+	<title>WordlShop - Admin</title>
 	<meta name="description" content="Metro Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -57,7 +58,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Metro</span></a>
+				<a class="brand" href="index.html"><span>WordlShop</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -357,22 +358,43 @@
 				<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
 			</ul> -->
 			<ul class="nav nav-tabs nav-stacked main-menu">
-				<li><a href="/dashboard"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
-				<li ><a href="/all-category"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li>
-				<li ><a href="/add-category"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>
-				<li ><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">All Brands</span></a></li>
-				<li ><a href="#"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Brand</span></a></li>
+				<li><a href="/admin"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
 				<li >
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Products</span><span class="label label-important"></span></a>
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Categorías</span><span class="label label-important"></span></a>
 					<ul>
-						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Product</span></a></li>
-						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
+						<li><a class="submenu" href="/categoria/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir categoría</span></a></li>
+						<li><a class="submenu" href="/categoria"><i class="icon-file-alt"></i><span class="hidden-tablet">Todas las categorías</span></a></li>
 					</ul>	
 				</li>
-				<li ><a href="#"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
+				<!-- <li ><a href="/all-category"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li> 
+				<li ><a href="/add-category"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>-->
+				<li >
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Usuarios</span><span class="label label-important"></span></a>
+					<ul>
+						<li><a class="submenu" href="/usuario/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir usuario</span></a></li>
+						<li><a class="submenu" href="/usuario"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los usuarios</span></a></li>
+					</ul>	
+				</li>
+				<li >
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Sector industrial</span><span class="label label-important"></span></a>
+					<ul>
+						<li><a class="submenu" href="/industria/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir industia</span></a></li>
+						<li><a class="submenu" href="/industria"><i class="icon-file-alt"></i><span class="hidden-tablet">Todas las industias</span></a></li>
+					</ul>	
+				</li>
+				<!-- <li ><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">All Brands</span></a></li>
+				<li ><a href="#"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Brand</span></a></li> -->
+				<li >
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Productos</span><span class="label label-important"></span></a>
+					<ul>
+						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir un Producto</span></a></li>
+						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>
+					</ul>	
+				</li>
+				<!-- <li ><a href="#"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
 				<li ><a href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
 				<li ><a href="#"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
-				<li ><a href="#"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
+				<li ><a href="#"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li> -->
 			</ul>
 		</div>
 	</div>
@@ -387,7 +409,7 @@
 			
 			<!-- start: Content -->
 			<div id="content" class="span10">			
-                @yield('admin_content');
+                @yield('admin_content')
 			</div><!-- end: Content -->	
 			
 		</div><!--/#content.span10-->
@@ -412,8 +434,8 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">creativeLabs</a></span>
-			<span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co/" alt="Bootstrap Admin Templates">Metro</a></span>
+			<span style="text-align:left;float:left">&copy; 2018 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">WordlShop</a></span>
+			<span class="hidden-phone" style="text-align:right;float:right">Creado por: <a href="http://admintemplates.co/" alt="Bootstrap Admin Templates">WordlShop</a></span>
 		</p>
 
 	</footer>
@@ -452,17 +474,17 @@
     <script src="{{asset('backend/js/custom.js')}}"></script>
 	<!-- end: JavaScript-->
 	<script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js')}}"></script>
-	<script>    
+	<!-- <script>    
 		$(document).on("click", "#delete", function(e){
 			e.preventDefault();
 			var link = $(this).attr("href");
-			bootbox.confirm("Are you want to delete!!", function(confirmed){
+			bootbox.confirm("¿Estas seguro que quieres borrar este elemento?", function(confirmed){
 				if (confirmed) {
 					window.location.href = link;
 				};
 			});
 		});
-	</script>
+	</script> -->
 </body>
 
 <!-- Mirrored from bootstrapmaster.com/live/metro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2018 16:56:47 GMT -->
