@@ -1,7 +1,14 @@
 				<div class="control-group">
-				  {!! Form::label('name', 'Nombre del usuario', ['class' => 'control-label', 'for' => 'date01']) !!}
+				  {!! Form::label('name', 'Nombre y apellido', ['class' => 'control-label', 'for' => 'date01']) !!}
 				  <div class="controls">
 					{!! Form::text('name', null, ['class' => 'input-xlarge', 'required' => '
+					required']) !!} 
+				  </div>
+				</div>
+				<div class="control-group">
+				  {!! Form::label('username', 'Nombre del usuario', ['class' => 'control-label', 'for' => 'date01']) !!}
+				  <div class="controls">
+					{!! Form::text('username', null, ['class' => 'input-xlarge', 'required' => '
 					required']) !!} 
 				  </div>
 				</div>

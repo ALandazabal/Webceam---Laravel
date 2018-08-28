@@ -28,6 +28,7 @@ Route::Resource('usuario','UserController');
 Route::Resource('industria','ManufactureController');
 Auth::routes();
 Route::get('/login','AdminController@login');
+Route::get('/registro','AdminController@register');
 Route::get('/admin','AdminController@dashboard');
 Route::get('/unactive_product/{product_id}','ProductoController@unactive_product');
 Route::get('/active_product/{product_id}','ProductoController@active_product');

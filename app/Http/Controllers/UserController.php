@@ -46,11 +46,19 @@ class UserController extends Controller
     {
         $user = new User();
 
-        $user->id = $request->id;
+        $count = DB::table('users')
+            ->selectRaw('count(*) as user_count')
+            ->first();
+
+        /*$user->id = $request->id;*/
+        $user->id = $count->user_count;
         $user->name = $request->input('name');
+        $user->username = $request->input('username');
         $user->email = $request->input('email');        
         $user->password = $request->input('password');
-        $user->remember_token = $request->input('remember_token');
+        $user->status = '0';        
+        $user->type = '1';
+       /* $user->remember_token = $request->input('remember_token');*/
         $user->save();
         return redirect()->route('usuario.index');
     }

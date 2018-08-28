@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Login</title>
+	<title>Registro</title>
 	<meta name="description" content="Metro Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -38,7 +38,7 @@
 			<div class="row-fluid">
 				<div class="login-box">
 					<div class="icons">
-						<a href="index.php"><i class="halflings-icon home"></i></a>
+						<a href="index.html"><i class="halflings-icon home"></i></a>
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<p class="alert-danger">
@@ -50,39 +50,46 @@
 							}
 					?>
 					</p>
-					<h2>Inicia sesión con tu cuenta</h2>
-					<form class="form-horizontal" action="/admin" method="get">
+					<h2>Registro de usuario</h2>
+					<form class="form-horizontal" action="/usuario" method="POST">
 						{{ csrf_field() }}
 						<fieldset>							
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="admin_email" id="username" type="text" placeholder="Usuario o correo electrónico"/>
+								<input class="input-large span10" name="name" id="name" type="text" placeholder="Nombre y apellido"/>
+							</div>
+							<div class="clearfix"></div>
+							
+							<div class="input-prepend" title="username">
+								<span class="add-on"><i class="halflings-icon user"></i></span>
+								<input class="input-large span10" name="username" id="username" type="text" placeholder="Nombre de usuario"/>
+							</div>
+							<div class="clearfix"></div>
+
+							<div class="input-prepend" title="email">
+								<span class="add-on"><i class="halflings-icon user"></i></span>
+								<input class="input-large span10" name="email" id="email" type="text" placeholder="Correo electrónico"/>
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="admin_password" id="password" type="password" placeholder="Contraseña"/>
+								<input class="input-large span10" name="password" id="password" type="password" placeholder="Contraseña"/>
 							</div>
 							<div class="clearfix"></div>
-							
-							<label class="remember" for="remember"><input type="checkbox" id="remember" /> Recuerdame</label>
+
+							<div class="input-prepend" title="Password">
+								<span class="add-on"><i class="halflings-icon lock"></i></span>
+								<input class="input-large span10" name="admin_password" id="password2" type="password" placeholder="Repita la Contraseña"/>
+							</div>
+							<div class="clearfix"></div>
 
 							<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Login</button>
+								<a href="/login" class="btn btn-primary">Atrás</a>
+								<button type="submit" class="btn btn-primary">Registrar</button>
 							</div>
 							<div class="clearfix"></div>
-					</form>
-					<hr>
-					<h3>¿Olvidaste la contraseña?</h3>
-					<p>
-						No te preocupes, <a href="#">click aquí</a> para obtener una nueva contraseña.
-					</p>	
-					<hr>
-					<h3>¿No tienes cuenta?</h3>
-					<p>
-						No te preocupes, <a href="/registro" class="btn btn-primary">click aquí</a> para obtener una nueva cuenta.
-					</p>
+					</form>	
 				</div><!--/span-->
 			</div><!--/row-->
 		</div><!--/.fluid-container-->
