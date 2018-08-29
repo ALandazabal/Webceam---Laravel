@@ -80,7 +80,7 @@
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="admin_password" id="password2" type="password" placeholder="Repita la Contraseña"/>
+								<input class="input-large span10" name="password2" id="password2" type="password" placeholder="Repita la Contraseña"/>
 							</div>
 							<div class="clearfix"></div>
 

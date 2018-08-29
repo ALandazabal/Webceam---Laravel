@@ -46,12 +46,12 @@ class UserController extends Controller
     {
         $user = new User();
 
-        $count = DB::table('users')
+        /*$count = DB::table('users')
             ->selectRaw('count(*) as user_count')
             ->first();
 
-        /*$user->id = $request->id;*/
-        $user->id = $count->user_count;
+        $user->id = $request->id;
+        $user->id = $count->user_count;*/
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->email = $request->input('email');        
