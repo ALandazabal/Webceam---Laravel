@@ -1,4 +1,4 @@
-@extends('user_layout')
+@extends('admin_layout')
 @section('admin_content')
 <ul class="breadcrumb">
 	<li>
@@ -29,7 +29,7 @@
 		</p>
 		<div class="box-content">
 			<!-- <form class="form-horizontal" action="/producto/" method="PUT" enctype="multipart/form-data"> -->
-			{!! Form::model($user, ['route'=> ['usuario.update_user', $user], 'method'=>'POST', 'files' =>true, 'class' => 'form-horizontal']) !!}
+			{!! Form::model($user, ['route'=> ['usuario.update', $user], 'method'=>'PUT', 'files' =>true, 'class' => 'form-horizontal']) !!}
 				
 			  <fieldset>
 				
@@ -38,8 +38,7 @@
 				<div class="form-actions">
 				  <!-- <button type="submit" class="btn btn-primary">update category </button> -->
 				  {!! Form::submit('Actualizar usuario',['class' => 'btn btn-primary']) !!}
-				  <a href="/user/{{$user->email}}" class="btn btn-danger">Cancelar</a>
-				  <a href="/unactive/{{$user->id}}" class="btn btn-warning">Deshabilitar cuenta</a>
+				  <a href="/usuario" class="btn btn-danger">Cancelar</a>
 				</div>
 			  </fieldset>
 			<!-- </form>  -->  

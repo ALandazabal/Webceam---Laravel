@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('user_layout')
 @section('admin_content')
 <ul class="breadcrumb">
 	<li>
@@ -8,7 +8,7 @@
 	</li>
 	<li>
 		<i class="icon-eye"></i>
-		<a href="#">Detalle usuario</a>
+		<a href="#">Perfil de usuario</a>
 	</li>
 </ul>
 
@@ -27,12 +27,14 @@
 		<div class="box-content">
 			@csrf
 			<div class="card" style="width: 80%; margin: 0 auto;">
-			  <img class="card-img-top" src="../image/{{ $user->image}}" style="height:80px; width:80px;">
+			  <img class="card-img-top" src="../image/{{ $user->avatar}}" style="height:80px; width:80px;">
 			  <div class="card-body">
 			    <h1 class="card-title">{{$user->name}}</h1>
 			    <h3>Correo: {{$user->email}}</h3>
-				<p class="card-text">Contraseña: {{$user->password}}</p>
-				<p class="card-text">Remember_token: {{$user->remember_token}}</p>
+				<p class="card-text">Username: {{$user->username}}</p>
+				<p class="card-text">Teléfono: {{$user->phone}}</p>
+				<p class="card-text">Dirección: {{$user->address}}</p>
+				<p class="card-text">Ciudad de habitación: {{$user->city}}</p>
 				<div class="form-actions">
 					{!! Form::open(['route'=>['usuario.destroy', $user->id],'method'=>'DELETE']) !!}			  
 						<a href="/usuario/{{$user->id}}/edit" class="btn btn-warning" role="button">Editar</a>

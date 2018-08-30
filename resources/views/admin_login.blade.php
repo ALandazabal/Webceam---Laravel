@@ -43,15 +43,15 @@
 					</div>
 					<p class="alert-danger">
 					<?php
-						$messege=Session::get('messege');
+						$messege=Session::get('message');
 							if($messege) {
 								echo $messege;
-								Session::put('messege',null);
+								Session::put('message',null);
 							}
 					?>
 					</p>
 					<h2>Inicia sesión con tu cuenta</h2>
-					<form class="form-horizontal" action="/admin" method="get">
+					<form class="form-horizontal" action="/accept" method="get">
 						{{ csrf_field() }}
 						<fieldset>							
 							<div class="input-prepend" title="Username">

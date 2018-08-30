@@ -3,9 +3,12 @@
 	use App\Category;
 	use App\User;
 
-	$admin = null;
+	$id = null;
+	$email = null;
 	if(isset($_SESSION['email'])){
-		$admin = User::where('email', '=', $_SESSION['email'])->firstOrFail();
+		$user = User::where('email', '=', $_SESSION['email'])->firstOrFail();
+		$id = $user->id;
+		$email = $user->email;
 	}
 
 ?>
@@ -15,7 +18,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>WordlShop - Admin</title>
+	<title>WorldShop - User</title>
 	<meta name="description" content="Metro Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -345,28 +348,8 @@
 	<div id="sidebar-left" class="span2">
 		<div class="nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
-				<li><a href="/admin"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
-				<li >
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Categorías</span><span class="label label-important"></span></a>
-					<ul>
-						<li><a class="submenu" href="/categoria"><i class="icon-file-alt"></i><span class="hidden-tablet">Todas las categorías</span></a></li>
-						<li><a class="submenu" href="/categoria/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir categoría</span></a></li>
-					</ul>	
-				</li>
-				<li >
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Usuarios</span><span class="label label-important"></span></a>
-					<ul>
-						<li><a class="submenu" href="/usuario"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los usuarios</span></a></li>
-						<li><a class="submenu" href="/usuario/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir usuario</span></a></li>
-					</ul>	
-				</li>
-				<li >
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Sector industrial</span><span class="label label-important"></span></a>
-					<ul>
-						<li><a class="submenu" href="/industria"><i class="icon-file-alt"></i><span class="hidden-tablet">Todas las industias</span></a></li>
-						<li><a class="submenu" href="/industria/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir industia</span></a></li>
-					</ul>	
-				</li>
+				<li><a href="/user/{{ $email }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
+				<li><a href="/usuario/{{ $id }}/editu"><i class="icon-bar-chart"></i><span class="hidden-tablet">Perfil</span></a></li>
 				<li >
 					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Productos</span><span class="label label-important"></span></a>
 					<ul>
@@ -375,26 +358,17 @@
 					</ul>	
 				</li>
 				<li >
-					<a class="dropmenu" href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet">Mensajes</span><span class="label label-important"></span></a>
+					<a class="dropmenu" href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet">Favoritos</span><span class="label label-important"></span></a>
 				</li>
 				<li >
-					<a class="dropmenu" href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet">Compras</span><span class="label label-important"></span></a>
+					<a class="dropmenu" href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet">Mis ordenes</span><span class="label label-important"></span></a>
 				</li>
 				<li >
-					<a class="dropmenu" href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet">Ventas</span><span class="label label-important"></span></a>
-				</li>
-				<li >
-					<a class="dropmenu" href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet">Reportes</span><span class="label label-important"></span></a>
-				</li>
-				<li >
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Configuraciones</span><span class="label label-important"></span></a>
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Historial</span><span class="label label-important"></span></a>
 					<ul>
-						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">FAQ</span></a></li>
-						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Ayuda</span></a></li>
-						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Contacto</span></a></li>
-						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Política de privacidad</span></a></li>
-						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Terminos de uso</span></a></li>
-					</ul>
+						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Compra</span></a></li>
+						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Venta</span></a></li>
+					</ul>	
 				</li>
 			</ul>
 		</div>

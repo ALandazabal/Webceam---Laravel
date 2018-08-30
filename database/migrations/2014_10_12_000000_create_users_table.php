@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('status');//Para usuarios normales darles de baja o activarlos
+            $table->string('status')->nullable();//Para usuarios normales darles de baja o activarlos
             $table->string('avatar')->nullable();
             $table->string('city')->nullable();
-            $table->string('type');// Para conocer si son admin o usuarios normales
+            $table->string('type')->nullable();// Para conocer si son admin o usuarios normales
             $table->string('gmail_token')->nullable();
             $table->string('fb_token')->nullable();
             $table->string('twitter_token')->nullable();

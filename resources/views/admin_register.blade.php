@@ -43,10 +43,10 @@
 					</div>
 					<p class="alert-danger">
 					<?php
-						$messege=Session::get('messege');
+						$messege=Session::get('message');
 							if($messege) {
 								echo $messege;
-								Session::put('messege',null);
+								Session::put('message',null);
 							}
 					?>
 					</p>

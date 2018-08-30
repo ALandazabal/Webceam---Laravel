@@ -50,15 +50,15 @@
                     @endif
                     </td>
                     <td class="center">
-                    @if($products->publication_status == 1)
-                    <a class="btn btn-info" href="/unactive_product/{{$products->product_id}}">
-                        <i class="halflings-icon white thumbs-down"></i>  
-                    </a>
-                    @else 
-                    <a class="btn btn-info" href="/active_product/{{$products->product_id}}">
-                        <i class="halflings-icon white thumbs-up"></i>  
-                    </a>
-                    @endif                           
+                        @if($products->publication_status == 1)
+                        <a class="btn btn-info" href="/unactive_product/{{$products->product_id}}">
+                            <i class="halflings-icon white thumbs-down"></i>  
+                        </a>
+                        @else 
+                        <a class="btn btn-info" href="/active_product/{{$products->product_id}}">
+                            <i class="halflings-icon white thumbs-up"></i>  
+                        </a>
+                        @endif                           
                         <a class="btn btn-success" href="/producto/{{$products->product_id}}/edit">
                             <i class="halflings-icon white edit"></i>  
                         </a>
