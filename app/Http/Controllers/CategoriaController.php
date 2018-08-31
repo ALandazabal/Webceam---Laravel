@@ -49,7 +49,11 @@ class CategoriaController extends Controller
         $category->category_id = $request->category_id;
         $category->category_name = $request->input('category_name');
         $category->category_description = $request->input('category_description');
-        $category->publication_status = $request->input('publication_status');
+        if($request->publication_status == null)
+            $category->publication_status = '0';
+        else
+            $category->publication_status = '1';
+        /*$category->publication_status = $request->publication_status;*/
         $category->save();
         return redirect()->route('categoria.index');
     }
@@ -90,7 +94,11 @@ class CategoriaController extends Controller
         $data = array();
         $data['category_name']=$request->category_name; 
         $data['category_description']=$request->category_description;
-        $data['publication_status']=$request->publication_status;
+        if($request->publication_status == null)
+            $data['publication_status'] = '0';
+        else
+            $data['publication_status'] = '1';
+        /*$data['publication_status']=$request->publication_status;*/
         Category::where('category_id',$category_id)->update($data);
         return redirect()->route('categoria.index');
     }

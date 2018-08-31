@@ -49,7 +49,10 @@ class ManufactureController extends Controller
         $manufacture->manufacture_id = $request->manufacture_id;
         $manufacture->manufacture_name = $request->input('manufacture_name');
         $manufacture->manufacture_description = $request->input('manufacture_description');
-        $manufacture->publication_status = $request->input('publication_status');
+        if($request->publication_status == null)
+            $manufacture->publication_status = '0';
+        else
+            $manufacture->publication_status = '1';
         $manufacture->save();
         return redirect()->route('industria.index');
     }
@@ -89,7 +92,11 @@ class ManufactureController extends Controller
         $data = array();
         $data['manufacture_name']=$request->manufacture_name; 
         $data['manufacture_description']=$request->manufacture_description;
-        $data['publication_status']=$request->publication_status;
+        if($request->publication_status == null)
+            $data['publication_status'] = '0';
+        else
+            $data['publication_status'] = '1';
+        /*$data['publication_status']=$request->publication_status;*/
         manufacture::where('manufacture_id',$manufacture_id)->update($data);
         return redirect()->route('industria.index');
     }

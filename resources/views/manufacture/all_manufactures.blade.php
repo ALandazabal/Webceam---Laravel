@@ -40,21 +40,21 @@
                     <td class="center">{{ $manufacture->manufacture_description}}</td>
                     <td class="center">
                     @if($manufacture->publication_status == 1)                        
-                        <span class="label label-success">Activa</span>
+                        <a href="/unactive_manufacture/{{$manufacture->manufacture_id}}" class="label label-success">Activa</a>
                     @else                        
-                        <span class="label label-danger">No Activa</span>
+                        <a href="/active_manufacture/{{$manufacture->manufacture_id}}" class="label label-danger">No Activa</a>
                     @endif
                     </td>
                     <td class="center">
-                    @if($manufacture->publication_status == 1)
-                    <a class="btn btn-info" href="/unactive_manufacture/{{$manufacture->manufacture_id}}">
-                        <i class="halflings-icon white thumbs-down"></i>  
-                    </a>
-                    @else 
-                    <a class="btn btn-info" href="/active_manufacture/{{$manufacture->manufacture_id}}">
-                        <i class="halflings-icon white thumbs-up"></i>  
-                    </a>
-                    @endif                           
+                    <!-- @if($manufacture->publication_status == 1)
+                                              <a class="btn btn-info">
+                                                  <i class="halflings-icon white thumbs-down"></i>  
+                                              </a>
+                                              @else 
+                                              <a class="btn btn-info">
+                                                  <i class="halflings-icon white thumbs-up"></i>  
+                                              </a>
+                                              @endif  -->                          
                         <a class="btn btn-success" href="/industria/{{$manufacture->manufacture_id}}/edit">
                             <i class="halflings-icon white edit"></i>  
                         </a>
