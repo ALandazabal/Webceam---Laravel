@@ -68,7 +68,8 @@ class AdminController extends Controller
             $user = User::where('username', '=', $admin_email)->firstOrFail();
         }
         $_SESSION['email'] = $user->email;
-        if(password_verify($request->admin_password, $user->password)){
+        /*if(password_verify($request->admin_password, $user->password)){*/
+        if($request->admin_password == $user->password){
             if($user->type == '1'){
                 return view('admin.dashboard'); 
             }else{

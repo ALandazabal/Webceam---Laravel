@@ -26,6 +26,7 @@ Route::Resource('categoria','CategoriaController');
 Route::Resource('producto','ProductoController');
 Route::Resource('usuario','UserController');
 Route::Resource('industria','ManufactureController');
+Route::Resource('metodo-pago','PaymentController');
 Auth::routes();
 Route::get('/login','AdminController@login');
 Route::get('/registro','AdminController@register');
@@ -44,4 +45,6 @@ Route::get('/active_manufacture/{manufacture_id}','ManufactureController@active_
 Route::get('/unactive_user/{user_id}','UserController@unactive_user');
 Route::get('/active_user/{user_id}','UserController@active_user');
 Route::get('/unactive/{user_id}','UserController@unactive');
+Route::get('/unactive_payment/{payment_id}','PaymentController@unactive_payment');
+Route::get('/active_payment/{payment_id}','PaymentController@active_payment');
 Route::get('/become_user_admin/{user_id}','UserController@become_user_admin');

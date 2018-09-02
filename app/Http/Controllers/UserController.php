@@ -77,6 +77,7 @@ class UserController extends Controller
         $user->password = password_hash($request->input('password'), PASSWORD_BCRYPT);
         $user->status = '0';        
         $user->type = '0';
+        $user->seller_rating = '0';
        /* $user->remember_token = $request->input('remember_token');*/
         $user->save();
         return redirect()->route('usuario.index');

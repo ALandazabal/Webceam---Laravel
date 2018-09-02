@@ -368,6 +368,13 @@
 					</ul>	
 				</li>
 				<li >
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Métodos de pago</span><span class="label label-important"></span></a>
+					<ul>
+						<li><a class="submenu" href="/metodo-pago"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los métodos de pago</span></a></li>
+						<li><a class="submenu" href="/metodo-pago/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir método de pago</span></a></li>
+					</ul>	
+				</li>
+				<li >
 					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Productos</span><span class="label label-important"></span></a>
 					<ul>
 						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>

@@ -53,11 +53,35 @@
 						{!! Form::textarea('product_long_description',null,['class'=>'cleditor', 'rows' => 3, 'cols' => 40]) !!}
 					  </div>
 				</div>
+				<div class="control-group hidden-phone">
+				  	{!! Form::label('product_send_conditions', 'Condiciones de envío', ['class' => 'control-label', 'for' => 'textarea2']) !!}
+					  <div class="controls">
+						{!! Form::textarea('product_send_conditions',null,['class'=>'cleditor', 'rows' => 3, 'cols' => 40]) !!}
+					  </div>
+				</div>
 				<div class="control-group">
 				  {!! Form::label('product_price', 'Precio del producto', ['class' => 'control-label', 'for' => 'date01']) !!}
 				  <div class="controls">
 					{!! Form::text('product_price', null, ['class' => 'input-xlarge', 'required' => 'required']) !!}
 				  </div>
+				</div>
+				<div class="control-group">
+					{!! Form::label('paymentm', 'Método de pago', ['class' => 'control-label', 'for' => 'selectError4']) !!}
+					<div class="controls">
+						<?php
+					  		$all_published_payment=DB::table('payments')->where('publication_status',1)->get();
+					  			foreach($all_published_payment as $v_payment){
+					  			    if($product != null){ ?>
+					  					<!-- <input type="checkbox" name="paymentm[]" value="{{$v_payment->payment_id}}">{{$v_payment->payment_name}}</br> -->	
+					  					{!! Form::checkbox('name', 'value', true) !!}
+					  		<?php 	}else{ ?>
+					  					<!-- <input type="checkbox" name="paymentm[]" value="{{$v_payment->payment_id}}">{{$v_payment->payment_name}}</br>	 -->
+					  					{!! Form::checkbox($v_payment->payment_name, $v_payment->payment_id, false) !!}
+					  		<?php 	} 
+						  		}?>
+						<!-- <input type="checkbox" name="paymentm" value="">PayPal</br>
+						<input type="checkbox" name="paymentm" value="">Mercado Pago -->
+					</div>
 				</div>
                 <div class="control-group">
 				  {!! Form::label('product_image', 'Imagen del producto', ['class' => 'control-label', 'for' => 'textarea2']) !!}
@@ -66,7 +90,7 @@
 				  </div>
 				</div>  
 				<div class="control-group">
-				  {!! Form::label('product_size', 'Tamaño del producto', ['class' => 'control-label', 'for' => 'date01']) !!}
+				  {!! Form::label('product_size', 'Cantidad del producto producto', ['class' => 'control-label', 'for' => 'date01']) !!}
 				  <div class="controls">
 					{!! Form::text('product_size', null, ['class' => 'input-xlarge', 'required' => 'required']) !!}
 				  </div>

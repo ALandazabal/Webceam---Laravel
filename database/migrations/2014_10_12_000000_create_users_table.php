@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('city')->nullable();
             $table->string('type')->nullable();// Para conocer si son admin o usuarios normales
+            $table->string('seller_rating')->nullable();
+            $table->string('votes')->nullable();
             $table->string('gmail_token')->nullable();
             $table->string('fb_token')->nullable();
             $table->string('twitter_token')->nullable();

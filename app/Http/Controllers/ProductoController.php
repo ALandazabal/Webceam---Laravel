@@ -61,6 +61,7 @@ class ProductoController extends Controller
         $producto->product_size = $request->input('product_size');
         $producto->product_short_description = $request->textarea('product_short_description');
         $producto->product_long_description = $request->textarea('product_long_description');
+        $producto->product_long_description = $request->textarea('product_send_conditions');
         $producto->publication_status = $request->input('publication_status');
         $producto->product_image = $name;
         $producto->save();

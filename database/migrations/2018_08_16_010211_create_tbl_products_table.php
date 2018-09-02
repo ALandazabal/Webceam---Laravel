@@ -13,18 +13,19 @@ class CreateTblProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('product_id');
             $table->integer('category_id');
-            $table->integer('manufacture_id');
-            $table->integer('manufacture_id');
+            $table->integer('manufacture_id')->nullable();
+            $table->integer('user_id');
             $table->string('product_name',30);
             $table->longText('product_short_description');
-            $table->longText('product_long_description');
+            $table->longText('product_long_description')->nullable();
+            $table->longText('product_send_conditions')->nullable();
             $table->float('product_price');
             $table->string('product_image');
-            $table->string('product_quantity');
-            $table->string('product_color');
+            $table->string('product_quantity')->nullable();
+            $table->string('product_color')->nullable();
             $table->integer('publication_status');
             $table->timestamps();
         });
@@ -37,6 +38,6 @@ class CreateTblProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 }
