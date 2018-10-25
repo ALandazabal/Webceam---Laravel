@@ -1,7 +1,6 @@
 @extends('admin_layout')
 @section('admin_content')
 <?php
-    session_start();
     $admin = null;
     if(isset($_SESSION['email'])){
         $admin = $_SESSION['email'];

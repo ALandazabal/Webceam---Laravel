@@ -11,6 +11,7 @@ use Session;
 use Illuminate\support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
+session_start();
 class UserController extends Controller
 {
     /**

@@ -40,30 +40,30 @@
                     <td>{{ $products->product_id}}</td>
                     <td class="center"><a href="/producto/{{$products->product_id}}">{{ $products->product_name}}</a></td>
                     <td class="center">{{ $products->product_short_description}}</td>
-                    <td> <img src="image/{{ $products->product_image}}" style="height:80px; width:80px;"></td>
+                    <td> <img src="../image/{{ $products->product_image}}" style="height:80px; width:80px;"></td>
                     <td class="center">{{ $products->product_price}}</td>
                     <td class="center">
                     @if($products->publication_status == 1)                        
-                        <span class="label label-success">Activa</span>
+                        <a href="/unactive_product/{{$products->product_id}}/{{ $user_id }}" class="label label-success">Activa</a>
                     @else                        
-                        <span class="label label-danger">No Activa</span>
+                        <a href="/active_product/{{$products->product_id}}/{{ $user_id }}" class="label label-danger">No Activa</a>
                     @endif
                     </td>
                     <td class="center">
-                        @if($products->publication_status == 1)
-                        <a class="btn btn-info" href="/unactive_product/{{$products->product_id}}">
-                            <i class="halflings-icon white thumbs-down"></i>  
-                        </a>
-                        @else 
-                        <a class="btn btn-info" href="/active_product/{{$products->product_id}}">
-                            <i class="halflings-icon white thumbs-up"></i>  
-                        </a>
-                        @endif                           
-                        <a class="btn btn-success" href="/producto/{{$products->product_id}}/edit">
+                       <!--  @if($products->publication_status == 1)
+                                                <a class="btn btn-info" >
+                                                    <i class="halflings-icon white thumbs-down"></i>  
+                                                </a>
+                                                @else 
+                                                <a class="btn btn-info">
+                                                    <i class="halflings-icon white thumbs-up"></i>  
+                                                </a>
+                                                @endif   -->                         
+                        <a class="btn btn-success" href="/producto/{{$products->product_id}}/editar/{{ $user_id }}">
                             <i class="halflings-icon white edit"></i>  
                         </a>
                         {!! Form::submit('Eliminar',['class' => 'btn btn-danger', 'id' => 'delete']) !!}
-                        </a>
+                        <!-- </a> -->
                     </td>
                 {!! Form::close() !!}
                 </tr>

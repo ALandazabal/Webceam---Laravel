@@ -25,6 +25,21 @@ class ProductoController extends Controller
         return view('product.all_product', compact('products'));
     }
 
+    public function inicio($user_id)
+    {
+        $products = Product::where('user_id', $user_id);
+
+        return view('product.all_product', compact('products', 'user_id'));
+    }
+
+    public function all_products($user_id)
+    {
+        $products = Product::all();
+
+        return view('product.all_product', compact('products', 'user_id'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -34,6 +49,12 @@ class ProductoController extends Controller
     {
         $product = null;
         return view('product.add_product', compact('product'));
+    }
+
+    public function crear($user_id)
+    {
+        $product = null;
+        return view('product.add_product', compact('product', 'user_id'));
     }
 
     /**
@@ -52,20 +73,38 @@ class ProductoController extends Controller
             $file->move(public_path().'/image/',$name);            
         }
 
+        $producto->product_image = $name;
         $producto->product_id = $request->product_id;
         $producto->category_id = $request->category_id;
         $producto->manufacture_id = $request->manufacture_id;
+        $producto->user_id = $request->user_id;
         $producto->product_name = $request->input('product_name');
         $producto->product_price = $request->input('product_price');
         $producto->product_color = $request->input('product_color');
-        $producto->product_size = $request->input('product_size');
-        $producto->product_short_description = $request->textarea('product_short_description');
-        $producto->product_long_description = $request->textarea('product_long_description');
-        $producto->product_long_description = $request->textarea('product_send_conditions');
-        $producto->publication_status = $request->input('publication_status');
-        $producto->product_image = $name;
+        $producto->product_quantity = $request->input('product_quantity');
+        $producto->product_short_description = $request->input('product_short_description');
+        $producto->product_long_description = $request->input('product_long_description');
+        $producto->product_long_description = $request->input('product_send_conditions');
+        if($request->input('publication_status') == null)
+            $producto->publication_status = 0;
+        else
+            $producto->publication_status = 1;
+        
         $producto->save();
-        return redirect()->route('producto.index');
+        
+        $product = Product::where('product_name',$request->input('product_name'))->first();
+
+        $payments = $request->input('all_published_payment');
+        foreach($payments as $pay){
+            DB::table('product_payment')->insert(
+                ['product_id' => $product->product_id, 'payment_id' => $pay]
+            );
+        }
+
+        /*return redirect()->route('producto.inicio');*/
+        $products = Product::all();
+        $user_id = $request->user_id;
+        return view('product.all_product', compact('products', 'user_id'));
     }
 
     /**
@@ -92,6 +131,11 @@ class ProductoController extends Controller
         return view('product.edit_product', compact('product'));
 
     }
+    public function editar($product_id, $user_id)
+    {
+        $product = Product::where('product_id',$product_id)->first();
+        return view('product.edit_product', compact('product', 'user_id'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -108,10 +152,13 @@ class ProductoController extends Controller
         $data['product_name']=$request->product_name;        
         $data['product_price']=$request->product_price;
         $data['product_color']=$request->product_color;
-        $data['product_size']=$request->product_size;
+        $data['product_quantity']=$request->product_quantity;
         $data['product_short_description']=$request->product_short_description;
         $data['product_long_description']=$request->product_long_description;
-        $data['publication_status']=$request->publication_status;
+        if($request->publication_status == null)
+            $data['publication_status']=0;
+        else
+            $data['publication_status']=1;
         
         $image=$request->file('product_image');
         if ($image) {
@@ -129,10 +176,23 @@ class ProductoController extends Controller
            $success=$image->move($upload_path,$image_full_name);
 
         }
+
+        $prodPay = DB::table('product_payment')->where('product_id', $product_id)->delete();
+
+        $payments = $request->input('all_published_payment');
+        foreach($payments as $pay){
+            DB::table('product_payment')->insert(
+                    ['product_id' => $product_id, 'payment_id' => $pay]
+            );
+            echo $pay;
+        }
         
         Product::where('product_id',$product_id)->update($data);
         
-        return redirect()->route('producto.index');
+        /*return redirect()->route('/producto/all/', ['user_id' => $request->user_id]);*/
+        $products = Product::all();
+        $user_id = $request->user_id;
+        return view('product.all_product', compact('products', 'user_id'));
     }
 
     /**
@@ -153,17 +213,21 @@ class ProductoController extends Controller
         return redirect()->route('producto.index');
     }
 
-    public function active_product($product_id)
+    public function active_product($product_id, $user_id)
     {
         Product::where('product_id',$product_id)->update(['publication_status' => 1]);
         Session::put('message','Producto activado exitosamente !!');
-        return redirect()->route('producto.index');
+        /*return redirect()->route('producto.inicio');*/
+        $products = Product::all();
+        return view('product.all_product', compact('products', 'user_id'));
     }
 
-    public function unactive_product($product_id)
+    public function unactive_product($product_id, $user_id)
     {
         Product::where('product_id',$product_id)->update(['publication_status' => 0]);
         Session::put('message','Producto desactivado exitosamente !!');
-        return redirect()->route('producto.index');
+        /*return redirect()->route('producto.inicio');*/
+        $products = Product::all();
+        return view('product.all_product', compact('products', 'user_id'));
     }
 }

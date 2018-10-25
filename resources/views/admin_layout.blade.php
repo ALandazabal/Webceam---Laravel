@@ -1,11 +1,12 @@
 <?php 
-
 	use App\Category;
 	use App\User;
 
+	$user_id = 0;
 	$admin = null;
 	if(isset($_SESSION['email'])){
 		$admin = User::where('email', '=', $_SESSION['email'])->firstOrFail();
+		$user_id = $admin->id;
 	}
 
 ?>
@@ -324,8 +325,8 @@
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="{{URL::to('/logout')}}"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="/perfil"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="/logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -377,8 +378,9 @@
 				<li >
 					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Productos</span><span class="label label-important"></span></a>
 					<ul>
-						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>
-						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir un Producto</span></a></li>
+						<li><a class="submenu" href="/producto/all/{{ $user_id }}"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>
+						<li><a class="submenu" href="/productos/{{ $user_id }}"><i class="icon-file-alt"></i><span class="hidden-tablet">Mis Productos</span></a></li>
+						<li><a class="submenu" href="/producto/create/{{ $user_id }}"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir un Producto</span></a></li>
 					</ul>	
 				</li>
 				<li >

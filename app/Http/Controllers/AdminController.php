@@ -39,8 +39,8 @@ class AdminController extends Controller
 
     public function dashboard(Request $request)
     {
-        /*session_start();
-        $_SESSION['email'] = $request->admin_email;*/
+       /* session_start();*/
+        /*$_SESSION['email'] = $request->admin_email;*/
         $admin_email = $request->admin_email;
         /*$admin_password = md5($request->admin_password);
         $result = DB::table('admin')
@@ -68,8 +68,8 @@ class AdminController extends Controller
             $user = User::where('username', '=', $admin_email)->firstOrFail();
         }
         $_SESSION['email'] = $user->email;
-        /*if(password_verify($request->admin_password, $user->password)){*/
-        if($request->admin_password == $user->password){
+        if(password_verify($request->admin_password, $user->password)){
+        /*if($request->admin_password == $user->password){*/
             if($user->type == '1'){
                 return view('admin.dashboard'); 
             }else{
@@ -86,6 +86,12 @@ class AdminController extends Controller
         }
         Session::put('message','El usuario no se encuentra registrado !!');
         return view('admin_register');
+    }    
+
+    public function logout()
+    {
+        unset($_SESSION['email']);
+        session_destroy();
+        return view('admin_login');
     }
-    
 }

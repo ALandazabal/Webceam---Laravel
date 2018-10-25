@@ -1,13 +1,12 @@
 <?php 
-
 	use App\Category;
 	use App\User;
 
-	$id = null;
+	$user_id = null;
 	$email = null;
 	if(isset($_SESSION['email'])){
 		$user = User::where('email', '=', $_SESSION['email'])->firstOrFail();
-		$id = $user->id;
+		$user_id = $user->id;
 		$email = $user->email;
 	}
 
@@ -349,12 +348,12 @@
 		<div class="nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<li><a href="/user/{{ $email }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
-				<li><a href="/usuario/{{ $id }}/editu"><i class="icon-bar-chart"></i><span class="hidden-tablet">Perfil</span></a></li>
+				<li><a href="/usuario/{{ $user_id }}/editu"><i class="icon-bar-chart"></i><span class="hidden-tablet">Perfil</span></a></li>
 				<li >
 					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Productos</span><span class="label label-important"></span></a>
 					<ul>
-						<li><a class="submenu" href="/producto"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>
-						<li><a class="submenu" href="/producto/create"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir un Producto</span></a></li>
+						<li><a class="submenu" href="/producto/all/{{ $user_id }}"><i class="icon-file-alt"></i><span class="hidden-tablet">Todos los Productos</span></a></li>
+						<li><a class="submenu" href="/producto/create/{{ $user_id }}"><i class="icon-file-alt"></i><span class="hidden-tablet">Añadir un Producto</span></a></li>
 					</ul>	
 				</li>
 				<li >

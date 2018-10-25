@@ -26,7 +26,7 @@
 				  </div>
 				</div>
 				<div class="control-group">
-				  {!! Form::label('password', 'Cambiar contraseña', ['class' => 'control-label', 'for' => 'date01']) !!}
+				  {!! Form::label('password', 'Contraseña', ['class' => 'control-label', 'for' => 'date01']) !!}
 				  <div class="controls">
 					{!! Form::password('password', null, ['class' => 'input-xlarge', 'required' => '
 					required']) !!} 

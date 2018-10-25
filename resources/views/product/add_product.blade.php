@@ -35,7 +35,7 @@
 
 				<div class="form-actions">
 				  {!! Form::submit('Añadir producto',['class' => 'btn btn-primary']) !!}
-				  <a href="/producto" class="btn btn-danger">Cancelar</a>
+				  <a href="/producto/all/{{ $user_id }}" class="btn btn-danger">Cancelar</a>
 				</div>
 			  </fieldset>
 			{!! Form::close() !!}
